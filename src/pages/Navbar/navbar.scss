@@ -1,0 +1,19 @@
+.headerWrapp {
+  display: flex;
+  justify-content: space-between;
+  //   margin-bottom: 20px;
+  .logo {
+    h1 {
+      color: #ffff;
+    }
+  }
+  .navWrapp {
+    display: flex;
+    // background-color: red;
+    li {
+      color: gray;
+      list-style: none;
+      margin-left: 20px;
+    }
+  }
+}
