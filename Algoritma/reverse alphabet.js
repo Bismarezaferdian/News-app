@@ -1,3 +1,4 @@
+// 1.Terdapat string "NEGIE1", silahkan reverse alphabet nya dengan angka tetap diakhir kata Hasil = "EIGEN1"
 
 const str = "NEGIE1";
 let alpha = "";
