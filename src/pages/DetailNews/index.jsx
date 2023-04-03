@@ -1,29 +1,14 @@
-import { Card, Carousel, Col, Row } from "antd";
-import { Content, Footer } from "antd/es/layout/layout";
-import React, { useEffect, useState } from "react";
+import { Carousel, Col, Row } from "antd";
+import { Content } from "antd/es/layout/layout";
+import React from "react";
 import "./detailNews.scss";
-import { useLocation, useNavigate } from "react-router-dom";
-import Meta from "antd/es/card/Meta";
+import { useLocation } from "react-router-dom";
 import Navbar from "../Navbar";
 import Footers from "../Footer";
 
 const DetailNews = () => {
   const location = useLocation();
   const item = location.state;
-  const navigate = useNavigate();
-  const [articles, setArticles] = useState([]);
-  const [newUpdate, setNewsUpdate] = useState();
-
-  useEffect(() => {
-    const update = articles.slice(0, 4);
-    setNewsUpdate(update);
-  }, [articles]);
-
-  function handleItemClick(item) {
-    navigate("/detail", { state: item });
-    console.log(`Selected value: ${item.title}`);
-  }
-  //   console.log(newUpdate);
 
   return (
     <div className="container">
@@ -67,20 +52,7 @@ const DetailNews = () => {
             </div>
           </Col>
           <Col>
-            <Row gutter={16} justify="center">
-              {newUpdate?.map((item) => (
-                <Col>
-                  <Card
-                    onClick={handleItemClick(item)}
-                    hoverable
-                    style={{ width: 240 }}
-                    cover={<img alt="example" src={item.urlToImage} />}
-                  >
-                    <Meta title={item.title} description="www.instagram.com" />
-                  </Card>
-                </Col>
-              ))}
-            </Row>
+            <Row gutter={16} justify="center"></Row>
           </Col>
         </Row>
       </Content>

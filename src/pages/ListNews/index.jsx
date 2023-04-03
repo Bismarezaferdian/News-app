@@ -13,23 +13,24 @@ const ListNews = () => {
   const [articles, setArticles] = useState([]);
 
   const apikey = "815ea8a806314dfca03bb671b777a8db";
+  const today = new Date();
+  const pastDate = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
+  const formattedDate = pastDate.toLocaleDateString("en-US");
 
   useEffect(() => {
     const getData = async () => {
       const res = await axios.get(
-        `https://newsapi.org/v2/everything?q=tesla&from=2023-02-28&sortBy=publishedAt&apiKey=${apikey}`
+        `https://newsapi.org/v2/everything?q=tesla&from=${formattedDate}&sortBy=publishedAt&apiKey=${apikey}`
       );
-      console.log(res);
       if (res.status === 200) {
         setArticles(res.data.articles);
       }
     };
     getData();
-  }, []);
+  }, [formattedDate]);
 
   function handleItemClick(item) {
     navigate("/detail", { state: item });
-    console.log(`Selected value: ${item.title}`);
   }
 
   return (
@@ -45,13 +46,13 @@ const ListNews = () => {
               <FieldTimeOutlined /> Trending on Eigen News
             </h3>
             <List
-              onClick={(e) => console.log(e)}
+              //   onClick={(e) => console.log(e)}
               itemLayout="vertical"
               //   size="large"
               pagination={{
-                onChange: (page) => {
-                  console.log(page);
-                },
+                // onChange: (page) => {
+                //   console.log(page);
+                // },
                 pageSize: 6,
               }}
               dataSource={articles}

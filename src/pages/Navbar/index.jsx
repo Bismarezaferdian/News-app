@@ -1,3 +1,4 @@
+import { LoginOutlined } from "@ant-design/icons";
 import { Header } from "antd/es/layout/layout";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -6,7 +7,7 @@ import "./navbar.scss";
 const Navbar = () => {
   return (
     <div>
-      <Header style={{ marginBottom: "10px" }}>
+      <Header>
         <div className="headerWrapp">
           <div className="logo">
             <Link to={"/"}>
@@ -14,10 +15,14 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="navWrapp">
-            <li>Out Story</li>
-            <li>Out Story</li>
-            <li>Out Story</li>
-            <li>Out Story</li>
+            <li>Hot News</li>
+            <li>International</li>
+            <li>National</li>
+            <li>Technology</li>
+            <li>Sport</li>
+            <li>
+              <LoginOutlined />
+            </li>
           </div>
         </div>
       </Header>
